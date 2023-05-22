@@ -133,7 +133,7 @@ export default
     let caption = subs.getCaption(message, params);
     let options = subs.getOptions(message, caption, params);
     if (message.media_group_id) {
-      message.media[0].caption = caption;
+      message.media[0].caption = "#投稿/n"+caption + `\n${caption}`+ "\n欢迎使用"+lang.get('Bot_url');
       resp = await bot.sendMediaGroup(config.Channel, message.media);
     } else if (message.audio) {
       resp = await bot.sendAudio(config.Channel, message.audio.file_id, options);
